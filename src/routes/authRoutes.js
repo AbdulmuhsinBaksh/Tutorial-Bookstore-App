@@ -27,13 +27,13 @@ router.post("/register", async (req, res) => {
         const existingEmail = await User.findOne({$or:[{email}]});
         if(existingEmail)
         {
-            return res.status(400).json({message: "User with that Email already exists"})
+            return res.status(400).json({message: "User with that Username already exists"})
         }
 
         const existingUser = await User.findOne({$or:[{username}]});
         if(existingUser)
         {
-            return res.status(400).json({message: "User with that Username already exists"})
+            return res.status(400).json({message: "User with that Email already exists"})
         }
 
         //get random avatar
